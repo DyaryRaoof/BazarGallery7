@@ -66,10 +66,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 
             case .failed( let error):
                 print(error)
+                SVProgressHUD.showError(withStatus: "كێشه‌یه‌ك ڕوویدا")
+                SVProgressHUD.dismiss(withDelay: 1)
                 
             case .cancelled:
                 print ("Cancelled")
-                SVProgressHUD.show(withStatus: "Cancelled")
+                SVProgressHUD.show(withStatus: "ڕه‌تكرایه‌وه‌")
                 SVProgressHUD.dismiss(withDelay: 1)
                 
             }
@@ -85,10 +87,19 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 
                 if let error = error {
                     print(error)
+                    SVProgressHUD.showError(withStatus: "كێشه‌یه‌ك ڕوویدا")
                     return
                 }
-               print ("Successfully Logged Into Facebook")
                 SVProgressHUD.dismiss()
+                
+                
+                print ("Successfully Logged Into Facebook")
+                
+                self.performSegue(withIdentifier: "goToMainCategoryView", sender: self)
+                
+               SVProgressHUD.showSuccess(withStatus: "سه‌ركه‌وتوو بوو !")
+                SVProgressHUD.dismiss(withDelay: 1)
+                
                 
             }
         }
@@ -103,9 +114,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
             if error != nil {
                 print(error)
                 SVProgressHUD.showError(withStatus: "كێشه‌یه‌ك ڕوویدا")
+                SVProgressHUD.dismiss(withDelay: 1)
             }else {
                 SVProgressHUD.dismiss()
-                SVProgressHUD.showSuccess(withStatus: "سه‌ركه‌هوتووبوو")
+                SVProgressHUD.showSuccess(withStatus: "سه‌ركه‌هوتوو بوو")
                 SVProgressHUD.dismiss(withDelay: 1)
                 
                 print("Log in Successful")

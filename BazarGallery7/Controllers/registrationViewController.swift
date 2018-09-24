@@ -36,6 +36,7 @@ class registrationViewController: UIViewController {
             
             if error != nil{
                 print(error)
+                SVProgressHUD.showError(withStatus: "كێشه‌یه‌ك ڕوویدا")
             }else{
                 print ("Registration Successful")
                 

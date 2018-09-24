@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42936B112159196200E46262 /* registrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42936B102159196200E46262 /* registrationViewController.swift */; };
 		42E417232158E5E6008695C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E417222158E5E6008695C3 /* AppDelegate.swift */; };
 		42E417252158E5E6008695C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E417242158E5E6008695C3 /* ViewController.swift */; };
 		42E417282158E5E6008695C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E417262158E5E6008695C3 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42936B102159196200E46262 /* registrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registrationViewController.swift; sourceTree = "<group>"; };
 		42E4171F2158E5E6008695C3 /* BazarGallery7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BazarGallery7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E417222158E5E6008695C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42E417242158E5E6008695C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				42E417242158E5E6008695C3 /* ViewController.swift */,
+				42936B102159196200E46262 /* registrationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -190,8 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BazarGallery7/Pods-BazarGallery7-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -207,8 +208,6 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
@@ -232,15 +231,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-BazarGallery7-checkManifestLockResult.txt",
 			);
@@ -256,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42936B112159196200E46262 /* registrationViewController.swift in Sources */,
 				42E417252158E5E6008695C3 /* ViewController.swift in Sources */,
 				42E417232158E5E6008695C3 /* AppDelegate.swift in Sources */,
 			);

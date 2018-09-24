@@ -13,8 +13,10 @@ import FacebookCore
 import FacebookLogin
 import FirebaseAuth
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
+    
     @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var mainScrollView: UIScrollView!
     
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -22,6 +24,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var mainViewUnderScrollView: UIView!
+    
+    
+    
+  
     
     
     override func viewDidLoad() {
@@ -29,13 +36,20 @@ class ViewController: UIViewController {
         
         facebookButton.layer.cornerRadius = 20
         loginButton.layer.cornerRadius = 20
+        emailTextField.layer.cornerRadius = 15
+        passwordTextField.layer.cornerRadius = 15
+        
+        
+        emailTextField.delegate  = self
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        mainScrollView.contentOffset = CGPoint(x: 0, y: 140)
     }
-
+    
+    
+    
     @IBAction func facebookButotnPressed(_ sender: UIButton) {
         
         
@@ -57,6 +71,7 @@ class ViewController: UIViewController {
                 print ("Cancelled")
                 SVProgressHUD.show(withStatus: "Cancelled")
                 SVProgressHUD.dismiss(withDelay: 1)
+                
             }
         }
         
@@ -81,6 +96,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
+        
+        
     }
     
 }

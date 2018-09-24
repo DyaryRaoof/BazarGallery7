@@ -94,10 +94,24 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
         
     }
-    
-    @IBAction func registerButtonPressed(_ sender: UIButton) {
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
         
+        SVProgressHUD.show()
         
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            
+            if error != nil {
+                print(error)
+                SVProgressHUD.showError(withStatus: "كێشه‌یه‌ك ڕوویدا")
+            }else {
+                SVProgressHUD.dismiss()
+                SVProgressHUD.showSuccess(withStatus: "سه‌ركه‌هوتووبوو")
+                SVProgressHUD.dismiss(withDelay: 1)
+                
+                print("Log in Successful")
+                self.performSegue(withIdentifier: "goToMainCategoryView", sender: self)
+            }
+        }
     }
     
 }

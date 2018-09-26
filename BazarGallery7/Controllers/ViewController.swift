@@ -26,6 +26,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var mainViewUnderScrollView: UIView!
     
+    @IBOutlet weak var rememberSwitch: UISwitch!
+    
+    
+    let userDefaults = UserDefaults.standard
+    
     
     
   
@@ -41,6 +46,25 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         
         emailTextField.delegate  = self
+        
+        if let switchDefaults = userDefaults.value(forKey: "switchIsOn") as? Bool {
+            rememberSwitch.isOn = switchDefaults
+        }
+        
+        if rememberSwitch.isOn {
+            
+            if let defaultsEmail = userDefaults.value(forKey: "email") as? String{
+                
+                emailTextField.text = defaultsEmail
+            }
+            
+            if let defaultsPassword = userDefaults.value(forKey: "password") as? String{
+                passwordTextField.text = defaultsPassword
+            }
+            
+        }
+        
+        
         
     }
     
@@ -120,11 +144,34 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 SVProgressHUD.showSuccess(withStatus: "سه‌ركه‌هوتوو بوو")
                 SVProgressHUD.dismiss(withDelay: 1)
                 
+                self.userDefaults.set(self.emailTextField.text, forKey: "email")
+                self.userDefaults.set(self.passwordTextField.text, forKey: "password")
+                self.userDefaults.set(self.rememberSwitch.isOn, forKey: "switchIsOn")
+                
                 print("Log in Successful")
                 self.performSegue(withIdentifier: "goToMainCategoryView", sender: self)
             }
+            
         }
     }
     
+    @IBAction func passwordForgottenButtonPressed(_ sender: UIButton) {
+        
+        SVProgressHUD.show()
+        
+        Auth.auth().sendPasswordReset(withEmail: emailTextField.text!) { (error) in
+            
+            if error != nil {
+                SVProgressHUD.showInfo(withStatus: "كێشه‌یه‌ك ڕوویدا !")
+                SVProgressHUD.dismiss(withDelay: 1)
+                print("error")
+            }else{
+                SVProgressHUD.dismiss()
+                SVProgressHUD.showInfo(withStatus: "پاسۆرد به‌ سه‌ركه‌وتووی نێردرا !")
+                SVProgressHUD.dismiss(withDelay: 1)
+                print("Sent")
+            }
+        }
+    }
 }
 
